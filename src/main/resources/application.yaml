@@ -1,3 +1,18 @@
+server:
+  port: 8080 #监听哪个接口
+
 spring:
   application:
     name: repair-system
+  datasource: #必要部分
+    url: jdbc:mysql://localhost:3306/repair_system?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8 #防止时差
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true #java和mysql之间格式的映射
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #sql和参数打印控制台（上线后需删除避免性能损耗）
